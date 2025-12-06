@@ -69,7 +69,7 @@ body {
   height: 480px;
   display: flex;
   align-items: center;
-  background: url("imagen/fondo.jpg") center/cover no-repeat;
+  background: url("fondo.jpg") center/cover no-repeat;
   color: white;
 }
 
