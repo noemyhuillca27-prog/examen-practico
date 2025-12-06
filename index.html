@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LG Solar — Hero</title>
+<link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<div class="logo">LG <span>Solar</span></div>
+<nav class="main-nav">
+<a href="#">Por qué LG Solar</a>
+<a href="#">Acerca de</a>
+<a href="#">Contacto</a>
+</nav>
+</div>
+</header>
+
+
+<main>
+<section class="hero">
+<div class="hero-overlay"></div>
+<div class="hero-inner container">
+<div class="hero-text">
+<h1>Son tiempos<br>de cambio</h1>
+<p class="lead">Genera y almacena tu propia energía. Empieza a ahorrar ya con energía limpia y ecológica.</p>
+<a class="btn" href="#">Ver cómo</a>
+</div>
+<figure class="hero-figure" aria-hidden="true">
+<!-- imagen decorativa (se usa la misma imagen como fondo). -->
+</figure>
+</div>
+</section>
+</main>
+<section class="estimate-section">
+<div class="container">
+<h2>¡Obtén hoy un estimado sin compromiso!</h2>
+
+
+<form class="estimate-form" action="#" method="post" novalidate>
+<div class="row inputs-row">
+<div class="field">
+<label for="nombre">Nombre *</label>
+<input id="nombre" name="nombre" type="text" required>
+</div>
+
+
+<div class="field">
+<label for="apellido">Apellido *</label>
+<input id="apellido" name="apellido" type="text" required>
+</div>
+
+
+<div class="field">
+<label for="email">Email *</label>
+<input id="email" name="email" type="email" required>
+</div>
+
+
+<div class="field">
+<label for="telefono">Teléfono *</label>
+<input id="telefono" name="telefono" type="tel" required>
+</div>
+
+
+<div class="field wide">
+<label for="direccion">Dirección</label>
+<input id="direccion" name="direccion" type="text">
+</div>
+</div>
+
+
+<div class="row checkbox-row">
+<label class="checkbox-inline"><input type="checkbox" name="propietario"> Propietario</label>
+<label class="checkbox-inline"><input type="checkbox" name="empresario"> Empresario</label>
+</div>
+
+
+<div class="row actions-row">
+<button class="btn-submit" type="submit">Enviar</button>
+</div>
+</form>
+</div>
+</section>
+<script>
+  const form = document.querySelector('.estimate-form');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const apellido = document.getElementById('apellido').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const direccion = document.getElementById('direccion').value.trim();
+
+    if (!nombre || !apellido || !email || !telefono) {
+      Swal.fire({
+        icon: 'warning',
+        title: '⚠️ Campos incompletos',
+        text: 'Por favor completa todos los campos obligatorios.',
+        confirmButtonColor: '#d66b28'
+      });
+      return;
+    }
+
+    Swal.fire({
+      title: '✨ Datos Registrados ✨',
+      html: `
+      <div style="text-align: left; font-size: 16px;">
+        <p><b>Nombre:</b> ${nombre}</p>
+        <p><b>Apellido:</b> ${apellido}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Teléfono:</b> ${telefono}</p>
+        <p><b>Dirección:</b> ${direccion || "No ingresado"}</p>
+      </div>
+      `,
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+      confirmButtonColor: '#b45d43',
+    });
+
+    form.reset();
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
